@@ -252,6 +252,10 @@ export default defineConfig({
             link: `/tutorials/agenda`
           },
           {
+            text: "Pulse",
+            link: `/tutorials/pulse`
+          },
+          {
             text: "Serverless",
             link: `/tutorials/serverless`
           },
@@ -554,6 +558,10 @@ export default defineConfig({
             {
               text: "Agenda",
               link: `/tutorials/agenda`
+            },
+            {
+              text: "Pulse",
+              link: `/tutorials/pulse`
             },
             {
               text: "Serverless",
