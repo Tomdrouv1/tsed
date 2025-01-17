@@ -17,8 +17,8 @@ head:
 Ts.ED support officially two unit test frameworks: Jest, Mocha and Vitest. It's also possible to use your
 preferred frameworks. Your feedback are welcome.
 
-- Installation guide for [Jest](/tutorials/jest)
 - Installation guide for [Vitest](/tutorials/vitest)
+- Installation guide for [Jest](/tutorials/jest) (unstable with ESM)
 
 ### Usage
 
@@ -35,9 +35,9 @@ Here is an example to test the ParseService:
 
 ::: code-group
 
-<<< @/docs/snippets/testing/parse-service.jest.spec.ts [jest]
-
 <<< @/docs/snippets/testing/parse-service.vitest.spec.ts [vitest]
+
+<<< @/docs/snippets/testing/parse-service.jest.spec.ts [jest]
 
 <<< @/docs/snippets/testing/parse-service.ts [ParserService.ts]
 
@@ -49,9 +49,9 @@ Testing asynchronous method is also possible using `Promises` (`async`/`await`):
 
 ::: code-group
 
-<<< @/docs/snippets/testing/db-service-async-await.jest.ts [jest]
-
 <<< @/docs/snippets/testing/db-service-async-await.vitest.ts [vitest]
+
+<<< @/docs/snippets/testing/db-service-async-await.jest.ts [jest]
 
 :::
 
@@ -82,9 +82,9 @@ This method is useful when you want to mock dependencies for a specific test.
 
 ::: code-group
 
-<<< @/docs/snippets/testing/db-service-mock-dependencies.jest.ts [jest]
-
 <<< @/docs/snippets/testing/db-service-mock-dependencies.vitest.ts [vitest]
+
+<<< @/docs/snippets/testing/db-service-mock-dependencies.jest.ts [jest]
 
 :::
 
@@ -99,9 +99,10 @@ it useful if you have a service that execute a code in his constructor.
 
 ::: code-group
 
-<<< @/docs/snippets/testing/db-service-mock-dependencies-create.jest.ts [jest]
 
 <<< @/docs/snippets/testing/db-service-mock-dependencies-create.vitest.ts [vitest]
+
+<<< @/docs/snippets/testing/db-service-mock-dependencies-create.jest.ts [jest]
 
 :::
 
@@ -214,11 +215,13 @@ Here is an example to do that:
 
 ::: code-group
 
-```typescript [jest]
+
+```typescript [vitest]
+import {it, expect, describe, beforeAll, afterAll} from "vitest";
 import {PlatformTest} from "@tsed/platform-http/testing";
 import SuperTest from "supertest";
-import {Server} from "../../Server";
-import {Chapter} from "../../entity/Chapter";
+import {Server} from "../../Server.js";
+import {Chapter} from "../../entity/Chapter.js";
 
 const entity = new Chapter();
 Object.assign(entity, {
@@ -247,12 +250,11 @@ describe("ChapterController", () => {
 });
 ```
 
-```typescript [vitest]
-import {it, expect, describe, beforeAll, afterAll} from "vitest";
+```typescript [jest]
 import {PlatformTest} from "@tsed/platform-http/testing";
 import SuperTest from "supertest";
-import {Server} from "../../Server.js";
-import {Chapter} from "../../entity/Chapter.js";
+import {Server} from "../../Server";
+import {Chapter} from "../../entity/Chapter";
 
 const entity = new Chapter();
 Object.assign(entity, {
@@ -291,7 +293,8 @@ Here is an example to do that:
 
 ::: code-group
 
-```typescript [jest]
+```typescript [vitest]
+import {it, expect, describe, beforeAll, afterAll, beforeEach} from "vitest";
 import {PlatformTest} from "@tsed/platform-http/testing";
 import SuperTest from "supertest";
 import {TestMongooseContext} from "@tsed/testing-mongoose";
@@ -319,8 +322,8 @@ describe("HelloWorldController", () => {
 });
 ```
 
-```typescript [vitest]
-import {it, expect, describe, beforeAll, afterAll, beforeEach} from "vitest";
+
+```typescript [jest]
 import {PlatformTest} from "@tsed/platform-http/testing";
 import SuperTest from "supertest";
 import {TestMongooseContext} from "@tsed/testing-mongoose";
@@ -356,9 +359,9 @@ To install session with Ts.ED see our [documentation page](/docs/session.md).
 
 ::: code-group
 
-<<< @/docs/snippets/testing/session.jest.ts [jest]
-
 <<< @/docs/snippets/testing/session.vitest.ts [vitest]
+
+<<< @/docs/snippets/testing/session.jest.ts [jest]
 
 :::
 
