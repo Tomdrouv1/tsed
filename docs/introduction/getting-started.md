@@ -78,6 +78,10 @@ bnx -p @tsed/cli tsed init .
 
 :::
 
+::: warning
+Ts.ED v8 required at least Node.js v20.11.0 version to work.
+:::
+
 You will be greeted with a few simple questions:
 
 <<< @/introduction/snippets/init.ansi
