@@ -35,6 +35,11 @@ For further details, you can view the full release notes here.
 | Remove Configurable, Deprecated, Enumerable, ReadOnly, Writable decorators |                                       | [beta.6](https://github.com/tsedio/tsed/releases/tag/v8.0.0-beta.6)   |
 | Remove auto import of `@tsed/platform-log-middleware`                      | [See](#request-logger-doesn-t-work)   |                                                                       |
 
+
+::: warning
+Ts.ED v8 required at least Node.js v20.11.0 version to work
+:::
+
 ### Injector instance everywhere
 
 In v7, the injector service in only available in a DI context execution (in a controller, service, middleware, etc.).
