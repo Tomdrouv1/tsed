@@ -9,12 +9,12 @@
     "build:api:summary": "node ./.vitepress/scripts/api-summary.js"
   },
   "dependencies": {
-    "@tsed/vitepress-theme": "1.5.2",
+    "@tsed/vitepress-theme": "1.5.3",
     "@vueuse/core": "10.11.0",
     "axios": "1.7.7",
     "lodash": "4.17.21",
     "lucide-vue-next": "^0.436.0",
-    "vitepress": "1.4.2"
+    "vitepress": "1.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

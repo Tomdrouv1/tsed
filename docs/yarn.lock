@@ -445,6 +445,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify-json/simple-icons@npm:^1.2.10":
+  version: 1.2.20
+  resolution: "@iconify-json/simple-icons@npm:1.2.20"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10/de2b6de8ff338de41ff8f46973af01cce5839c02952033fc50819505a436fab39848ad7159562587292f0a36156960d32dd739a8e3927dd148127d202613b601
+  languageName: node
+  linkType: hard
+
+"@iconify/types@npm:*":
+  version: 2.0.0
+  resolution: "@iconify/types@npm:2.0.0"
+  checksum: 10/1b3425ecbc0eef44f23d3f27355ae7ef306d5119c566f013ef1849995b016e1fdcc5af6b74c3bc0554485d70cf5179cb9c1095b14d662a55abcae1148e1a13c9
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -734,7 +750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@tsed/docs-new@workspace:."
   dependencies:
-    "@tsed/vitepress-theme": "npm:1.5.2"
+    "@tsed/vitepress-theme": "npm:1.5.3"
     "@vueuse/core": "npm:10.11.0"
     autoprefixer: "npm:^10.4.19"
     axios: "npm:1.7.7"
@@ -742,18 +758,18 @@ __metadata:
     lucide-vue-next: "npm:^0.436.0"
     postcss: "npm:^8.4.39"
     tailwindcss: "npm:3.4.4"
-    vitepress: "npm:1.4.2"
+    vitepress: "npm:1.5.0"
   languageName: unknown
   linkType: soft
 
-"@tsed/vitepress-theme@npm:1.5.2":
-  version: 1.5.2
-  resolution: "@tsed/vitepress-theme@npm:1.5.2"
+"@tsed/vitepress-theme@npm:1.5.3":
+  version: 1.5.3
+  resolution: "@tsed/vitepress-theme@npm:1.5.3"
   dependencies:
     "@vueuse/core": "npm:10.11.0"
     axios: "npm:1.7.7"
     lucide-vue-next: "npm:^0.436.0"
-  checksum: 10/04ce26cf6599b36ca9d28d6162740468ac37d0a0f68679fe982c31ee5ebe926dd9c50734111fa3aba8c1212839963017681e1c2122a592961cad775d6b47edf9
+  checksum: 10/3bc7e675ab8cdb093957051f3b5c1c29dd038f15e3e18e820c75de02312c732cc89cf889d46d4f8b43f0a989982ff90beaf43a468743dc90a3901b9e60a14771
   languageName: node
   linkType: hard
 
@@ -3206,12 +3222,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitepress@npm:1.4.2":
-  version: 1.4.2
-  resolution: "vitepress@npm:1.4.2"
+"vitepress@npm:1.5.0":
+  version: 1.5.0
+  resolution: "vitepress@npm:1.5.0"
   dependencies:
     "@docsearch/css": "npm:^3.6.2"
     "@docsearch/js": "npm:^3.6.2"
+    "@iconify-json/simple-icons": "npm:^1.2.10"
     "@shikijs/core": "npm:^1.22.2"
     "@shikijs/transformers": "npm:^1.22.2"
     "@shikijs/types": "npm:^1.22.2"
@@ -3237,7 +3254,7 @@ __metadata:
       optional: true
   bin:
     vitepress: bin/vitepress.js
-  checksum: 10/4605967576968690fb0dd9c1de25a116e4b7165bfaa27f3287832679ae53c0fc62c51915450f74d7c0ad203d91e94ad3d5815f6558954fdee16f17e9cc5d240c
+  checksum: 10/51f564333ca94bfff59fb00bd8fab4623b51d2fd058b58952b3b1cdb353cd77e445f928006ac5d98a2446994345c5d4ff9689bc4ef023c2d14af144e52d54242
   languageName: node
   linkType: hard
 
