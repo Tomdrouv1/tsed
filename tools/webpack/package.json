@@ -1,6 +1,6 @@
 {
   "name": "@tsed/webpack-config",
-  "version": "8.4.7",
+  "version": "8.5.0",
   "private": true,
   "main": "webpack.config.js"
 }
