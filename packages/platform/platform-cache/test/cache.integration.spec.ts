@@ -1,4 +1,6 @@
 import {Controller, Inject} from "@tsed/di";
+// @ts-ignore
+import {PlatformExpress} from "@tsed/platform-express";
 import {PlatformTest} from "@tsed/platform-http/testing";
 import {PathParams, QueryParams} from "@tsed/platform-params";
 import {Get, Head, Post, Property} from "@tsed/schema";
@@ -84,6 +86,7 @@ class TestCacheController {
 describe("Cache", () => {
   beforeEach(
     PlatformTest.bootstrap(Server, {
+      adapter: PlatformExpress,
       logger: {},
       mount: {
         "/rest": [TestCacheController]
@@ -94,13 +97,12 @@ describe("Cache", () => {
       }
     })
   );
-  beforeEach(() => {
-    request = SuperTest(PlatformTest.callback());
-  });
+  beforeEach(() => {});
   afterEach(PlatformTest.reset);
 
   describe("scenario 1: GET /rest/caches/scenario-1", () => {
     it("should return data with cached response", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-1").expect(200);
 
@@ -115,6 +117,7 @@ describe("Cache", () => {
     });
 
     it("should return 304 when content isn't modified", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const platformCache = PlatformTest.get<PlatformCache>(PlatformCache);
 
       const response = await request.get("/rest/caches/scenario-1").expect(200);
@@ -127,6 +130,7 @@ describe("Cache", () => {
     });
 
     it("should return fresh data if cache-control is set to no-cache", async () => {
+      const request = SuperTest(PlatformTest.callback());
       await request.get("/rest/caches/scenario-1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-1").set("cache-control", "no-cache").expect(200);
 
@@ -138,6 +142,7 @@ describe("Cache", () => {
   });
   describe("scenario 2: GET /rest/caches/scenario-2", () => {
     it("should return data with cached response", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-2").expect(200);
       const response2 = await request.get("/rest/caches/scenario-2").expect(200);
 
@@ -153,6 +158,7 @@ describe("Cache", () => {
   });
   describe("scenario 4: POST /rest/caches/scenario-4", () => {
     it("should not cache POST method", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.post("/rest/caches/scenario-4").expect(200);
       const response2 = await request.post("/rest/caches/scenario-4").expect(200);
 
@@ -172,6 +178,7 @@ describe("Cache", () => {
   });
   describe("scenario 5: GET /rest/caches/scenario-5", () => {
     it("should return data with then cache response", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-5/1?name=1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-5/1?name=1").expect(200);
       const response3 = await request.get("/rest/caches/scenario-5/2?name=2").expect(200);
@@ -212,6 +219,7 @@ describe("Cache", () => {
   });
   describe("scenario 6: GET /rest/caches/scenario-6", () => {
     it("should return data from cached service", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-6/1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-6/2").expect(200);
 
@@ -224,6 +232,7 @@ describe("Cache", () => {
   });
   describe("scenario 7: GET /rest/caches/scenario-7", () => {
     it("should return data from cached service", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-7/1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-7/2").expect(200);
       const response3 = await request.get("/rest/caches/scenario-7/2").expect(200);
@@ -242,6 +251,7 @@ describe("Cache", () => {
 describe("withoutCache", () => {
   beforeEach(
     PlatformTest.bootstrap(Server, {
+      adapter: PlatformExpress,
       logger: {},
       cache: false,
       mount: {
@@ -249,13 +259,11 @@ describe("withoutCache", () => {
       }
     })
   );
-  beforeEach(() => {
-    request = SuperTest(PlatformTest.callback());
-  });
   afterEach(PlatformTest.reset);
 
   describe("scenario 1: GET /rest/caches/scenario-1", () => {
     it("should return data with cached response", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/caches/scenario-1").expect(200);
       const response2 = await request.get("/rest/caches/scenario-1").expect(200);
 
