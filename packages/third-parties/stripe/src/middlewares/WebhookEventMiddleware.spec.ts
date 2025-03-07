@@ -98,7 +98,14 @@ describe("WebhookEventMiddleware", () => {
     const actualError: any = catchError(() => middleware.use(signature, Buffer.from(payloadString), ctx));
 
     expect(actualError.message).toEqual(
-      "Stripe webhook error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? https://github.com/stripe/stripe-node#webhook-signing, innerException: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? https://github.com/stripe/stripe-node#webhook-signing"
+      `Stripe webhook error: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature
+, innerException: No signatures found matching the expected signature for payload. Are you passing the raw request body you received from Stripe? 
+ If a webhook request is being forwarded by a third-party tool, ensure that the exact request body, including JSON formatting and new line style, is preserved.
+
+Learn more about webhook signing and explore webhook integration examples for various frameworks at https://docs.stripe.com/webhooks/signature`
     );
   });
   it("should throw error when secret is missing", async () => {
